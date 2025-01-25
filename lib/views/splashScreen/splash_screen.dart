@@ -21,11 +21,11 @@ class SplashScreen extends StatelessWidget {
               gradient: LinearGradient(
                 //this defines the colors that gradient will have
                 colors: [
-                  Colors.white,
+                  Color.fromRGBO(65, 62, 62, 1),
                   Colors.black,
                 ],
                 //this defines
-                stops: [0.0,0.3],
+                stops: [0.0,0.5],
                 begin: Alignment.topCenter,
                 end: Alignment.bottomCenter,
               ),
