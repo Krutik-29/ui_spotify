@@ -16,7 +16,7 @@ const List song_type_2 = [
   "Discover",
   "Concerts",
 ];
-const List songs = [
+const List<Map<String,dynamic>> songs = [
   {
     "img": "assets/images/img_3.jpg",
     "title": "Feelin' Good",
