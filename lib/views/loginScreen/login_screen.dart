@@ -8,6 +8,12 @@ class LoginScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    List<String?> paths = [null,'assets/images/mobile_icon.png', 'assets/images/google_icon.png', 'assets/images/facebook_icon.png',null];
+    List<String> text = ['Sign up for free','Continue with phone number', 'Sign in with Google', 'Sign in with Facebook','Log In'];
+    List<Color> color = [const Color.fromRGBO(29, 210, 84, 1),Colors.black,Colors.black,Colors.black,Colors.black];
+    List<Color> textColor = [Colors.black,Colors.white,Colors.white,Colors.white,Colors.white];
+    List<bool> enableBorder = [true,true,true,true,false];
+
     return SafeArea(
       child: Scaffold(
           //parent column
@@ -19,8 +25,8 @@ class LoginScreen extends StatelessWidget {
             height: 400,
             decoration: const BoxDecoration(
               gradient: LinearGradient(
-                colors: [Color.fromRGBO(65, 62, 62, 1), Colors.black12],
-                stops: [0.0, 0.8],
+                colors: [Color.fromRGBO(65, 62, 62, 1), Colors.black],
+                stops: [0.0, 0.7],
                 begin: Alignment.topCenter,
                 end: Alignment.bottomCenter,
               ),
@@ -48,61 +54,41 @@ class LoginScreen extends StatelessWidget {
               ],
             ),
           ),
-          Container(
-              padding: const EdgeInsets.only(top: 20),
-              height: 406.857,
-              width: double.infinity,
-              child: Column(
-                children: [
-                  Container(
-                    decoration: BoxDecoration(
-                      color: Colors.green,
-                      border: Border.all(width: 0, color: Colors.black12),
-                      borderRadius: BorderRadius.circular(50),
-                    ),
-                    padding: const EdgeInsets.all(5),
-                    height: 50,
-                    width: 330,
-                    child: const Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Text(
-                          'Sign Up For Free',
-                          style: TextStyle(color: Colors.black, fontSize: 16, fontWeight: FontWeight.w500),
-                          textAlign: TextAlign.center,
-                        )
-                      ],
-                    ),
-                  ),
-                  const SizedBox(
-                    height: 15,
-                  ),
-                  const LoginTypeBox(text: "Continue with phone number", path: 'assets/images/mobile_icon.png', color: Colors.black),
-                  const SizedBox(
-                    height: 15,
-                  ),
-                  const LoginTypeBox(text: "Sign in with Google", path: 'assets/images/google_icon.png', color: Colors.black),
-                  const SizedBox(
-                    height: 15,
-                  ),
-                  const LoginTypeBox(text: "Sign in with Facebook", path: 'assets/images/facebook_icon.png', color: Colors.black),
-                  const SizedBox(
-                    height: 15,
+          Expanded(
+            child: Container(
+                padding: const EdgeInsets.only(top: 40),
+                color: Colors.black,
+                width: double.infinity,
+                child: Column(
+                  children: List.generate(
+                    paths.length,
+                    (index) {
+                      return Column(
+                        children: [
+                          LoginTypeBox(
+                            text: text[index],
+                            path: paths[index],
+                            color: color[index],
+                            textColor: textColor[index],
+                            enableBorder: enableBorder[index],
+                          ),
+                          const SizedBox(
+                            height: 15,
+                          )
+                        ],
+                      );
+                    },
                   ),
 
-
-                 GestureDetector(
-                   onTap: (){
-
-                   },
-                   child: const  Text('Log In',style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 16,
-                        fontWeight: FontWeight.w500
-                    ), ),
-                 )
-                ],
-              )),
+                  //    child: const  Text('Log In',style: TextStyle(
+                  //         color: Colors.white,
+                  //         fontSize: 16,
+                  //         fontWeight: FontWeight.bold
+                  //     ), ),
+                  //  )
+                  // ],
+                )),
+          ),
         ],
       )),
     );
