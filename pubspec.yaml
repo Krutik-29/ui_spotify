@@ -77,9 +77,9 @@ flutter:
   fonts:
    - family: Spotify
      fonts:
-       - asset: assets/fonts/Spotify/Gotham-Bold.ttf
+       - asset: assets/fonts/Spotify/GothamBold.ttf
          weight: 700
-       - asset: assets/fonts/Spotify/Gotham-Light.ttf
+       - asset: assets/fonts/Spotify/GothamLight.ttf
        - asset: assets/fonts/Spotify/GothamLightItalic.ttf
          style: italic
   #   - family: Trajan Pro

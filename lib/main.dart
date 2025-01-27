@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:ui_spotify/pages/album_page.dart';
-import 'package:ui_spotify/pages/home_page.dart';
-import 'package:ui_spotify/pages/root_app.dart';
 import 'package:ui_spotify/views/loginScreen/login_screen.dart';
+import 'package:ui_spotify/views/rootScreen/root_screen.dart';
 import 'package:ui_spotify/views/splashScreen/splash_screen.dart';
 
 void main() {
@@ -28,6 +26,7 @@ class MyApp extends StatelessWidget {
       routes: {
         SplashScreen.routeName: (context) => const SplashScreen(),
         LoginScreen.routeName: (context) => const LoginScreen(),
+        RootScreen.routeName: (context) => const RootScreen(),
       },
       //home: const RootApp(),
     );

@@ -40,7 +40,7 @@ class _LoginTypeBoxState extends State<LoginTypeBox> {
           Text(widget.text,style:
             TextStyle(
               color: widget.textColor,
-              fontSize: 16,
+              fontSize: 15,
               fontWeight: FontWeight.w700,
               fontFamily: 'Spotify'
             ),
