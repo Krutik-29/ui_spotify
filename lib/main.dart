@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ui_spotify/theme/theme.dart';
 import 'package:ui_spotify/views/loginScreen/login_screen.dart';
 import 'package:ui_spotify/views/rootScreen/root_screen.dart';
 import 'package:ui_spotify/views/splashScreen/splash_screen.dart';
@@ -16,13 +17,14 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       debugShowCheckedModeBanner: false,
-      themeMode: ThemeMode.dark,
-      theme: ThemeData.dark(useMaterial3: true).copyWith(
-        textTheme: ThemeData.dark().textTheme.apply(
-          fontFamily: 'Spotify'
-        )
-      ),
-      initialRoute: SplashScreen.routeName,
+      //themeMode: ThemeMode.dark,
+      // theme: ThemeData.dark(useMaterial3: true).copyWith(
+      //   textTheme: ThemeData.dark().textTheme.apply(
+      //     fontFamily: 'Spotify'
+      //   )
+      // ),
+      theme: AppTheme.darkTheme,
+      initialRoute: RootScreen.routeName,
       routes: {
         SplashScreen.routeName: (context) => const SplashScreen(),
         LoginScreen.routeName: (context) => const LoginScreen(),

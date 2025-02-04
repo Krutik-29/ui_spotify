@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:ui_spotify/views/homeScreen/home_screen.dart';
+
+import '../../theme/theme.dart';
 
 class RootScreen extends StatefulWidget {
   static String routeName = '/rootPage';
@@ -9,62 +12,56 @@ class RootScreen extends StatefulWidget {
 }
 
 class _RootScreenState extends State<RootScreen> {
-  int _selectedIndex = 0;
+  int _currentIndex = 0;
+  List<Widget> screens= [
+    const HomeScreen(),
+    Scaffold(body: const Center(child: Text('Search'),), backgroundColor: AppTheme.darkTheme.scaffoldBackgroundColor,),
+    Scaffold(body: const Center(child: Text('Your Library'),), backgroundColor: AppTheme.darkTheme.scaffoldBackgroundColor,),
+    Scaffold(body: const Center(child: Text('Premium'),), backgroundColor: AppTheme.darkTheme.scaffoldBackgroundColor,),
+    Scaffold(body: const Center(child: Text('Create'),), backgroundColor: AppTheme.darkTheme.scaffoldBackgroundColor,),
+  ];
 
-  void _onItemTapped(int index) {
-    setState(() {
-      _selectedIndex = index;
-    });
-  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
-       body: _getBody(),
+     // backgroundColor: Colors.white,
+       body: screens[_currentIndex],
       bottomNavigationBar: _getBottomNavigationBar(),
     );
   }
 
-  Widget _getBody() {
-    return IndexedStack(
-      index: _selectedIndex,
-      children: const [
-        Center(
-          child: Text(
-            "Home",
-            style: TextStyle(fontSize: 20, color: Colors.black, fontWeight: FontWeight.bold),
-          ),
-        ),
-        Center(
-          child: Text(
-            "Search",
-            style: TextStyle(fontSize: 20, color: Colors.black, fontWeight: FontWeight.bold),
-          ),
-        ),
-        Center(
-          child: Text(
-            "Your Library",
-            style: TextStyle(fontSize: 20, color: Colors.black, fontWeight: FontWeight.bold),
-          ),
+
+
+  Widget _getBottomNavigationBar(){
+
+    return Column(
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        // Mini Player
+        // Container(
+        //   height: 64,
+        //   color: const Color(0xFF282828),
+        //   child: const MiniPlayer(),
+        // ),
+        // Navigation Bar
+        BottomNavigationBar(
+          currentIndex: _currentIndex,
+          onTap: (index) {
+            setState(() {
+              _currentIndex = index;
+            });
+          },
+          type: BottomNavigationBarType.fixed,
+          items: const [
+            BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
+            BottomNavigationBarItem(icon: Icon(Icons.search), label: 'Search'),
+            BottomNavigationBarItem(icon: Icon(Icons.library_music), label: 'Your Library'),
+            BottomNavigationBarItem(icon: Icon(Icons.workspace_premium), label: 'Premium'),
+            BottomNavigationBarItem(icon: Icon(Icons.add_box), label: 'Create'),
+          ],
         ),
       ],
     );
-  }
-
-  Widget _getBottomNavigationBar() {
-    return BottomNavigationBar(items: const [
-      BottomNavigationBarItem(icon: Icon(Icons.home_filled), label: 'Home'),
-      BottomNavigationBarItem(icon: Icon(Icons.search_sharp), label: 'Search'),
-      BottomNavigationBarItem(icon: Icon(Icons.library_books), label: 'Your Library'),
-    ],
-    currentIndex: _selectedIndex,
-    selectedItemColor: Colors.black,
-    unselectedItemColor: Colors.grey,
-    onTap: _onItemTapped,
-    backgroundColor: Colors.transparent,
-    elevation: 0,
-    selectedFontSize: 12,
-    type: BottomNavigationBarType.fixed,);
   }
 }
