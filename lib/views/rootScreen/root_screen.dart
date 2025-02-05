@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:ui_spotify/views/homeScreen/home_screen.dart';
 
@@ -25,6 +27,7 @@ class _RootScreenState extends State<RootScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      extendBody: true,
      // backgroundColor: Colors.white,
        body: screens[_currentIndex],
       bottomNavigationBar: _getBottomNavigationBar(),
@@ -35,33 +38,33 @@ class _RootScreenState extends State<RootScreen> {
 
   Widget _getBottomNavigationBar(){
 
-    return Column(
-      mainAxisSize: MainAxisSize.min,
-      children: [
-        // Mini Player
-        // Container(
-        //   height: 64,
-        //   color: const Color(0xFF282828),
-        //   child: const MiniPlayer(),
-        // ),
-        // Navigation Bar
-        BottomNavigationBar(
-          currentIndex: _currentIndex,
-          onTap: (index) {
-            setState(() {
-              _currentIndex = index;
-            });
-          },
-          type: BottomNavigationBarType.fixed,
-          items: const [
-            BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
-            BottomNavigationBarItem(icon: Icon(Icons.search), label: 'Search'),
-            BottomNavigationBarItem(icon: Icon(Icons.library_music), label: 'Your Library'),
-            BottomNavigationBarItem(icon: Icon(Icons.workspace_premium), label: 'Premium'),
-            BottomNavigationBarItem(icon: Icon(Icons.add_box), label: 'Create'),
-          ],
-        ),
-      ],
+    return Container(
+      padding: const EdgeInsets.only(top: 30),
+      height: 100,
+        decoration:const BoxDecoration(
+        gradient:  LinearGradient(
+        colors: [Colors.transparent,Colors.black26,Colors.black87],
+    begin: Alignment.topCenter,
+    end: Alignment.bottomCenter,
+    stops: [0.3,0.5,0.7],
+    tileMode: TileMode.clamp,
+    ),),
+      child: BottomNavigationBar(
+        currentIndex: _currentIndex,
+        onTap: (index) {
+          setState(() {
+            _currentIndex = index;
+          });
+        },
+        type: BottomNavigationBarType.fixed,
+        items: const [
+          BottomNavigationBarItem(icon: Icon(Icons.home_filled), label: 'Home'),
+          BottomNavigationBarItem(icon: Icon(Icons.search_outlined), label: 'Search'),
+          BottomNavigationBarItem(icon: Icon(Icons.my_library_books_outlined), label: 'Your Library'),
+          BottomNavigationBarItem(icon: Icon(Icons.stars), label: 'Premium'),
+          BottomNavigationBarItem(icon: Icon(Icons.add), label: 'Create'),
+        ],
+      ),
     );
   }
 }

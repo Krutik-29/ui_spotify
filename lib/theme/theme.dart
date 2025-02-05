@@ -46,8 +46,8 @@ class AppTheme {
     ),
 
     // Bottom Navigation Bar Theme
-    bottomNavigationBarTheme: const BottomNavigationBarThemeData(
-      backgroundColor: backgroundColor,
+    bottomNavigationBarTheme: const  BottomNavigationBarThemeData(
+      backgroundColor: Colors.transparent,//Color(0x00ffffff),
       selectedItemColor: primaryTextColor,
       unselectedItemColor: secondaryTextColor,
       type: BottomNavigationBarType.fixed,
@@ -55,10 +55,12 @@ class AppTheme {
       selectedLabelStyle: TextStyle(
         fontSize: 10,
         fontFamily: fontFamily,
+        fontWeight: FontWeight.bold
       ),
       unselectedLabelStyle: TextStyle(
         fontSize: 10,
         fontFamily: fontFamily,
+        fontWeight: FontWeight.bold,
       ),
       selectedIconTheme: IconThemeData(
         size: 30
