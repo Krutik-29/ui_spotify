@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:ui_spotify/theme/theme.dart';
+import 'package:ui_spotify/views/albumScreen/album_screen.dart';
 import 'package:ui_spotify/views/loginScreen/login_screen.dart';
 import 'package:ui_spotify/views/rootScreen/root_screen.dart';
 import 'package:ui_spotify/views/splashScreen/splash_screen.dart';
@@ -24,11 +25,12 @@ class MyApp extends StatelessWidget {
       //   )
       // ),
       theme: AppTheme.darkTheme,
-      initialRoute: RootScreen.routeName,
+      initialRoute: AlbumScreen.routeName,
       routes: {
         SplashScreen.routeName: (context) => const SplashScreen(),
         LoginScreen.routeName: (context) => const LoginScreen(),
         RootScreen.routeName: (context) => const RootScreen(),
+        AlbumScreen.routeName: (context) => AlbumScreen(),
       },
       //home: const RootApp(),
     );

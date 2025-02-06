@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ui_spotify/views/albumScreen/album_screen.dart';
 import 'package:ui_spotify/views/homeScreen/appBarChip.dart';
 
 import '../../theme/theme.dart';
@@ -37,172 +38,177 @@ class _HomeScreenState extends State<HomeScreen> {
                 //color: Colors.grey,
                 padding: const EdgeInsets.all(10),
                 margin: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    const Text(
-                      'To get you started',
-                      style: TextStyle(fontWeight: FontWeight.bold, color: Colors.white, fontSize: 22),
-                    ),
-                    const SizedBox(
-                      height: 5,
-                    ),
-                    SingleChildScrollView(
-                      scrollDirection: Axis.horizontal,
-                      child: Row(
-                        //main row which will show list of cards(Albums/Playlists)
-                        children: List.generate(
-                          10,
-                          (index) {
-                            return Column(
-                              children: [
-                                Padding(
-                                  padding: const EdgeInsets.all(6.0),
-                                  child: Container(
-                                    height: 150,
-                                    width: 150,
-                                    color: Colors.blue,
+                child: GestureDetector(
+                  onTap: (){
+                    Navigator.pushNamed(context, AlbumScreen.routeName);
+                  },
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      const Text(
+                        'To get you started',
+                        style: TextStyle(fontWeight: FontWeight.bold, color: Colors.white, fontSize: 22),
+                      ),
+                      const SizedBox(
+                        height: 5,
+                      ),
+                      SingleChildScrollView(
+                        scrollDirection: Axis.horizontal,
+                        child: Row(
+                          //main row which will show list of cards(Albums/Playlists)
+                          children: List.generate(
+                            10,
+                            (index) {
+                              return Column(
+                                children: [
+                                  Padding(
+                                    padding: const EdgeInsets.all(6.0),
+                                    child: Container(
+                                      height: 150,
+                                      width: 150,
+                                      color: Colors.blue,
+                                    ),
                                   ),
-                                ),
-                                Padding(
-                                  padding: const EdgeInsets.all(6.0),
-                                  child: Container(
-                                    height: 50,
-                                    width: 150,
-                                    color: Colors.red,
-                                  ),
-                                )
-                              ],
-                            );
-                          },
+                                  Padding(
+                                    padding: const EdgeInsets.all(6.0),
+                                    child: Container(
+                                      height: 50,
+                                      width: 150,
+                                      color: Colors.red,
+                                    ),
+                                  )
+                                ],
+                              );
+                            },
+                          ),
                         ),
                       ),
-                    ),
 
-                    const SizedBox(height: 10,),
+                      const SizedBox(height: 10,),
 
-                    const Text(
-                      'Try Something Else',
-                      style: TextStyle(fontWeight: FontWeight.bold, color: Colors.white, fontSize: 22),
-                    ),
-                    const SizedBox(
-                      height: 5,
-                    ),
-                    SingleChildScrollView(
-                      scrollDirection: Axis.horizontal,
-                      child: Row(
-                        //main row which will show list of cards(Albums/Playlists)
-                        children: List.generate(
-                          10,
-                              (index) {
-                            return Column(
-                              children: [
-                                Padding(
-                                  padding: const EdgeInsets.all(6.0),
-                                  child: Container(
-                                    height: 150,
-                                    width: 150,
-                                    color: Colors.blue,
+                      const Text(
+                        'Try Something Else',
+                        style: TextStyle(fontWeight: FontWeight.bold, color: Colors.white, fontSize: 22),
+                      ),
+                      const SizedBox(
+                        height: 5,
+                      ),
+                      SingleChildScrollView(
+                        scrollDirection: Axis.horizontal,
+                        child: Row(
+                          //main row which will show list of cards(Albums/Playlists)
+                          children: List.generate(
+                            10,
+                                (index) {
+                              return Column(
+                                children: [
+                                  Padding(
+                                    padding: const EdgeInsets.all(6.0),
+                                    child: Container(
+                                      height: 150,
+                                      width: 150,
+                                      color: Colors.blue,
+                                    ),
                                   ),
-                                ),
-                                Padding(
-                                  padding: const EdgeInsets.all(6.0),
-                                  child: Container(
-                                    height: 50,
-                                    width: 150,
-                                    color: Colors.red,
-                                  ),
-                                )
-                              ],
-                            );
-                          },
+                                  Padding(
+                                    padding: const EdgeInsets.all(6.0),
+                                    child: Container(
+                                      height: 50,
+                                      width: 150,
+                                      color: Colors.red,
+                                    ),
+                                  )
+                                ],
+                              );
+                            },
+                          ),
                         ),
                       ),
-                    ),
 
-                    const SizedBox(height: 10,),
+                      const SizedBox(height: 10,),
 
-                    const Text(
-                      'Try Something Else',
-                      style: TextStyle(fontWeight: FontWeight.bold, color: Colors.white, fontSize: 22),
-                    ),
-                    const SizedBox(
-                      height: 5,
-                    ),
-                    SingleChildScrollView(
-                      scrollDirection: Axis.horizontal,
-                      child: Row(
-                        //main row which will show list of cards(Albums/Playlists)
-                        children: List.generate(
-                          10,
-                              (index) {
-                            return Column(
-                              children: [
-                                Padding(
-                                  padding: const EdgeInsets.all(6.0),
-                                  child: Container(
-                                    height: 150,
-                                    width: 150,
-                                    color: Colors.blue,
+                      const Text(
+                        'Try Something Else',
+                        style: TextStyle(fontWeight: FontWeight.bold, color: Colors.white, fontSize: 22),
+                      ),
+                      const SizedBox(
+                        height: 5,
+                      ),
+                      SingleChildScrollView(
+                        scrollDirection: Axis.horizontal,
+                        child: Row(
+                          //main row which will show list of cards(Albums/Playlists)
+                          children: List.generate(
+                            10,
+                                (index) {
+                              return Column(
+                                children: [
+                                  Padding(
+                                    padding: const EdgeInsets.all(6.0),
+                                    child: Container(
+                                      height: 150,
+                                      width: 150,
+                                      color: Colors.blue,
+                                    ),
                                   ),
-                                ),
-                                Padding(
-                                  padding: const EdgeInsets.all(6.0),
-                                  child: Container(
-                                    height: 50,
-                                    width: 150,
-                                    color: Colors.red,
-                                  ),
-                                )
-                              ],
-                            );
-                          },
+                                  Padding(
+                                    padding: const EdgeInsets.all(6.0),
+                                    child: Container(
+                                      height: 50,
+                                      width: 150,
+                                      color: Colors.red,
+                                    ),
+                                  )
+                                ],
+                              );
+                            },
+                          ),
                         ),
                       ),
-                    ),
 
-                    const SizedBox(height: 10,),
+                      const SizedBox(height: 10,),
 
-                    const Text(
-                      'Try Something Else',
-                      style: TextStyle(fontWeight: FontWeight.bold, color: Colors.white, fontSize: 22),
-                    ),
-                    const SizedBox(
-                      height: 5,
-                    ),
-                    SingleChildScrollView(
-                      scrollDirection: Axis.horizontal,
-                      child: Row(
-                        //main row which will show list of cards(Albums/Playlists)
-                        children: List.generate(
-                          10,
-                              (index) {
-                            return Column(
-                              children: [
-                                Padding(
-                                  padding: const EdgeInsets.all(6.0),
-                                  child: Container(
-                                    height: 150,
-                                    width: 150,
-                                    color: Colors.blue,
+                      const Text(
+                        'Try Something Else',
+                        style: TextStyle(fontWeight: FontWeight.bold, color: Colors.white, fontSize: 22),
+                      ),
+                      const SizedBox(
+                        height: 5,
+                      ),
+                      SingleChildScrollView(
+                        scrollDirection: Axis.horizontal,
+                        child: Row(
+                          //main row which will show list of cards(Albums/Playlists)
+                          children: List.generate(
+                            10,
+                                (index) {
+                              return Column(
+                                children: [
+                                  Padding(
+                                    padding: const EdgeInsets.all(6.0),
+                                    child: Container(
+                                      height: 150,
+                                      width: 150,
+                                      color: Colors.blue,
+                                    ),
                                   ),
-                                ),
-                                Padding(
-                                  padding: const EdgeInsets.all(6.0),
-                                  child: Container(
-                                    height: 50,
-                                    width: 150,
-                                    color: Colors.red,
-                                  ),
-                                )
-                              ],
-                            );
-                          },
+                                  Padding(
+                                    padding: const EdgeInsets.all(6.0),
+                                    child: Container(
+                                      height: 50,
+                                      width: 150,
+                                      color: Colors.red,
+                                    ),
+                                  )
+                                ],
+                              );
+                            },
+                          ),
                         ),
                       ),
-                    ),
 
-                  ],
+                    ],
+                  ),
                 ),
               ),
             ),
